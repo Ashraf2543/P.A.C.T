@@ -1,0 +1,97 @@
+/* Import all CSS files */
+@import './global.css';
+@import './layout.css';
+@import './auth.css';
+@import './homepage.css';
+@import './dashboard.css';
+@import './teacher.css';
+@import './student.css';
+@import './proctoring.css';
+@import './exam-taking.css';
+@import './exam-result.css';
+
+/* Additional global overrides and utilities */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: var(--space-4) var(--space-6);
+  border-radius: var(--radius-md);
+  color: white;
+  z-index: var(--z-tooltip);
+  animation: slideInRight 0.3s ease-out;
+}
+
+.notification.success {
+  background-color: var(--success-500);
+}
+
+.notification.error {
+  background-color: var(--error-500);
+}
+
+.notification.warning {
+  background-color: var(--warning-500);
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Print optimization */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .break-before {
+    page-break-before: always;
+  }
+  
+  .break-after {
+    page-break-after: always;
+  }
+  
+  .break-inside-avoid {
+    page-break-inside: avoid;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .btn {
+    border: 2px solid;
+  }
+  
+  .card {
+    border: 2px solid var(--gray-800);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
